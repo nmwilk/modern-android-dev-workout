@@ -4,7 +4,7 @@ Working sample app showing usage of [RxJava](https://github.com/ReactiveX/RxJava
 
 Uses NASA's [NeoWs API](https://api.nasa.gov/api.html#NeoWS) as its data source.
  
-Requires Java 8 installed (for RetroLambda) and JAVA_HOME pointing at it. Or you can point the build at your JDK1.8 installation using a line like this - in the app module's build.gradle:
+Requires JDK 1.8 installed (for RetroLambda) and JAVA_HOME pointing at it. Or you can point the build at your JDK1.8 installation using a line like this - in the app module's build.gradle:
 
 ```
 retrolambda {
