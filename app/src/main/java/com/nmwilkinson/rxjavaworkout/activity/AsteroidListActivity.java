@@ -21,6 +21,7 @@ import javax.inject.Inject;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 
 public class AsteroidListActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String PARAM_DATE = "date";
@@ -32,6 +33,7 @@ public class AsteroidListActivity extends AppCompatActivity implements View.OnCl
     Observable<Asteroids> asteroidsObservable;
 
     private String date;
+    private Subscription subscription;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class AsteroidListActivity extends AppCompatActivity implements View.OnCl
     protected void onResume() {
         super.onResume();
 
-        asteroidsObservable.map(asteroids -> asteroids.nearEarthObjects(date))
+        subscription = asteroidsObservable.map(asteroids -> asteroids.nearEarthObjects(date))
                 .flatMap(asteroids -> Observable.from(asteroids))
                 .subscribe(new Subscriber<Asteroid>() {
                     @Override
@@ -75,12 +77,13 @@ public class AsteroidListActivity extends AppCompatActivity implements View.OnCl
                         adapter.addAsteroid(asteroid);
                     }
                 });
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+
+        subscription.unsubscribe();
     }
 
     public static Intent createLaunchIntent(final Context context, final String date) {
