@@ -7,6 +7,8 @@
     <TextView
         android:id="@+id/date"
         android:gravity="center_vertical|start"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:layout_width="match_parent"
         android:layout_height="@dimen/date_row_height" />
 

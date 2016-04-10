@@ -1,12 +1,12 @@
 package com.nmwilkinson.rxjavaworkout.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.nmwilkinson.rxjavaworkout.AsteroidsApplication;
 import com.nmwilkinson.rxjavaworkout.R;
@@ -92,6 +92,6 @@ public class DatesActivity extends AppCompatActivity implements View.OnClickList
     private void logAsteroids(final Asteroids asteroids) {
         final String format = String.format("Got %d asteroids, got %d dates", asteroids.getElementCount(), asteroids.getNearEarthObjects().size());
         Log.d(TAG, format);
-        Toast.makeText(DatesActivity.this, format, Toast.LENGTH_SHORT).show();
+        Snackbar.make(findViewById(android.R.id.content), format, Snackbar.LENGTH_LONG).show();
     }
 }

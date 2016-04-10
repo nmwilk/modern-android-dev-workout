@@ -94,6 +94,6 @@ public class AsteroidListActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(final View v) {
-
+        // TODO something fancy.
     }
 }
