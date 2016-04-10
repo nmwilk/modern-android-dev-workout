@@ -56,9 +56,7 @@ public class AsteroidListAdapter extends RecyclerView.Adapter {
     }
 
     public void sort() {
-        Collections.sort(asteroids, (lhs, rhs) ->
-                new Double(lhs.getCloseApproachData().get(0).getMissDistance().getKilometers())
-                        .compareTo(rhs.getCloseApproachData().get(0).getMissDistance().getKilometers()));
+        Collections.sort(asteroids, AsteroidsKt.distanceComparator());
     }
 
     private static class ViewHolder extends RecyclerView.ViewHolder {
